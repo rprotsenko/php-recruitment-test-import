@@ -1,0 +1,16 @@
+{
+  "name": "rprotsenko/php-recruitment-test-import",
+  "version": "1.0",
+  "license": "GPL-3.0",
+  "require": {
+    "php": "~7.4.0||~8.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rprotsenko\\DevTestImport\\": "src"
+    },
+    "files": [
+      "src/components.php"
+    ]
+  }
+}
