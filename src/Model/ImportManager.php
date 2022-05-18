@@ -38,7 +38,7 @@ class ImportManager
             $xml = $this->readSitemap($filename);
             foreach ($xml->url as $child) {
                 $url = (string) $child->loc;
-                $path = parse_str($url);
+                $path = parse_url($url);
                 if (isset($path['host'])
                     && isset($path['path'])
                     && strtolower(trim($path['host'])) == strtolower(trim($website->getHostname()))) {
