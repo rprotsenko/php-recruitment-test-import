@@ -35,15 +35,15 @@
                 <form class="form-inline" enctype="multipart/form-data" method="post" action="/import">
                     <div class="form-group">
                         <label for="exampleSelectName">Website</label>
-                        <select name="website" id="exampleSelectName">
+                        <select name="website" id="exampleSelectName" class="form-control">
                             <?php foreach ($this->getWebsites() as $website): /** @var \Snowdog\DevTest\Model\Website $website */ ?>
-                                <option value="<?= $website->getWebsiteId() ?>"><?= $website->getName() . '[' .  $website->getHostname() . ']'?></option>
+                                <option value="<?= $website->getWebsiteId() ?>"><?= $website->getName() . ' - [' .  $website->getHostname() . ']'?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="fileToUpload">Choose sitemap file</label>
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Import</button>
                 </form>
