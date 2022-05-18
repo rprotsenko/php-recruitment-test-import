@@ -19,11 +19,16 @@ class ImportCommand
 
     public function __invoke($website, $filename, OutputInterface $output)
     {
-        try {
-            $count = $this->importManager->import($website, $filename);
-            $output->writeln('<info>Imported ' . $count . ' rows</info>');
-        } catch (\Exception $e) {
-            $output->writeln('<error>' . $e->getMessage() . '</error>');
+        if ($website && $filename) {
+            try {
+                $count = $this->importManager->import($website, $filename);
+                $output->writeln('<info>Imported ' . $count . ' rows</info>');
+            } catch (\Exception $e) {
+                $output->writeln('<error>' . $e->getMessage() . '</error>');
+            }
+        } else {
+            $output->writeln('<error>Website or file cannot be empty!</error>');
         }
+
     }
 }
