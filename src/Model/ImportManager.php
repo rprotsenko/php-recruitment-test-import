@@ -25,12 +25,17 @@ class ImportManager
         $this->websiteManager = $websiteManager;
     }
 
-    public function import($website, $filename)
+    public function import($websiteId, $filename)
     {
         $importedRows = 0;
+
+        if (!$websiteId || !$filename) {
+            return $importedRows;
+        }
+
         try {
 
-            $website = $this->websiteManager->getById($website);
+            $website = $this->websiteManager->getById($websiteId);
             if (!$website->getWebsiteId()) {
                 throw new \Exception('Website not found');
             }
